@@ -3,9 +3,8 @@ session_start();
 require "classes/Blork.php";
 
 echo "hello world";
-echo "\n\n";
+echo "<br><br>";
 
 $blork = new \classes\Blork();
 $blork->doSomething();
 
-?>
