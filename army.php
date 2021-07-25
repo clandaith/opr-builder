@@ -6,3 +6,5 @@ echo "not logged in.  Later!";
 }else{
 echo "logged in";
 }
+
+session_destroy();
