@@ -18,8 +18,9 @@ $streamHandler = new StreamHandler('php://stdout', Logger::WARNING);
 $streamHandler->setFormatter($formatter);
 $log->pushHandler($streamHandler);
 // test messages
-$log->addWarning("testing 1");
-$log->addWarning("testing 2");
+$log->error("error");
+$log->warning("warn");
+$log->info("info");
 
 $_SESSION["logged_in"] = true;
 
