@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require "classes/Blork.php";
+//require "classes/Blork.php";
 
 $_SESSION["logged_in"] = true;
 
