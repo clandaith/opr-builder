@@ -4,6 +4,8 @@ namespace classes;
 
 include 'traits/LoggingTrait.php';
 
+use Monolog\LineFormatter;
+
 class MainController {
     use \LoggingTrait;
 
