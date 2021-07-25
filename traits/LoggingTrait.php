@@ -10,11 +10,11 @@ trait LoggingTrait {
     function getLogger(): \Monolog\Logger {
 // set the format
         $output = "%message%\n";
-        $formatter = new LineFormatter($output);
+        // $formatter = new LineFormatter($output);
 // create a log channel to STDOUT
         $log = new Logger('my_logger');
         $streamHandler = new StreamHandler('php://stdout', Logger::WARNING);
-        $streamHandler->setFormatter($formatter);
+        // $streamHandler->setFormatter($formatter);
 
         $log->pushHandler($streamHandler);
 // test messages
