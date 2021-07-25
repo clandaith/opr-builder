@@ -1,8 +1,8 @@
 <?php
 
 namespace classes;
-    
-include '../traits/LoggingTrait.php';
+
+include 'traits/LoggingTrait.php';
 
 class MainController {
     use \LoggingTrait;
