@@ -2,8 +2,10 @@
 
 require 'vendor/autoload.php';
 
-trait LoggingTrait {
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
+trait LoggingTrait {
     function getLogger(): \Monolog\Logger {
 // set the format
         $output = "%message%\n";
@@ -12,7 +14,7 @@ trait LoggingTrait {
         $log = new Logger('my_logger');
         $streamHandler = new StreamHandler('php://stdout', Logger::WARNING);
         $streamHandler->setFormatter($formatter);
-        
+
         $log->pushHandler($streamHandler);
 // test messages
         $log->error("error");
@@ -21,6 +23,5 @@ trait LoggingTrait {
 
         return $log;
     }
-
 }
 
