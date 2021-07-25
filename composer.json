@@ -1,4 +1,7 @@
 {
+  "config": {
+    "disable-tls": true
+  },
   "require": {
     "monolog/monolog": "2.3.2"
   }
