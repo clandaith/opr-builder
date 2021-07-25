@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 
 use Monolog\Handler\StreamHandler;
+use Monolog\LineFormatter;
 use Monolog\Logger;
 
 trait LoggingTrait {
