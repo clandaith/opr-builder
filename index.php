@@ -10,7 +10,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 // set the format
-$output = "%message%";
+$output = "%message%\n";
 $formatter = new LineFormatter($output);
 // create a log channel to STDOUT
 $log = new Logger('my_logger');
