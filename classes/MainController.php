@@ -2,6 +2,8 @@
 
 namespace classes;
 
+include 'LoggingFactory.php';
+
 use classes\LoggingFactory as LoggingFactory;
 use Monolog\Logger;
 
