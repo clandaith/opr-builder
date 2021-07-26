@@ -10,28 +10,34 @@ use Monolog\Logger;
 class LoggingFactory {
     private static Logger $log;
 
-    private static function setup() {
+    public function setup(): Logger {
         // set the format
         //$output = "%message%\n";
         // $formatter = new LineFormatter($output);
 // create a log channel to STDOUT
-        this::$log = new Logger('my_logger');
-        this::$log->pushHandler(new StreamHandler('php://stdout', LoggingFactory::WARNING));
+        $log = new Logger('my_logger');
+        $log->pushHandler(new StreamHandler('php://stdout', Logger::WARNING));
         // $streamHandler->setFormatter($formatter);
 
         // $log->pushHandler($streamHandler);
 // test messages
-        this::$log->error("error");
-        this::$log->warning("warn");
-        this::$log->info("info");
+        $log->error("error");
+        $log->warning("warn");
+        $log->info("info");
+
+        return $log;
     }
 
-    public static function getLogger(): LoggingFactory {
+    public static function getLogger(): Logger {
         if (null === static::$log) {
-            self::setup();
+            static::$log = new static();
         }
 
         return static::$log;
+    }
+
+    protected function __construct() {
+
     }
 }
 
