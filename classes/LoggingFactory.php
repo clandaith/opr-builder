@@ -8,7 +8,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 class LoggingFactory {
-    private static LoggingFactory $log;
+    private static Logger $log;
 
     private static function setup() {
         // set the format
