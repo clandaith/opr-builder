@@ -10,7 +10,7 @@ use Monolog\Logger;
 class LoggingFactory {
     private static LoggingFactory $log;
 
-    public function __construct() {
+    private static function setup() {
         // set the format
         //$output = "%message%\n";
         // $formatter = new LineFormatter($output);
@@ -27,6 +27,10 @@ class LoggingFactory {
     }
 
     public static function getLogger(): LoggingFactory {
+        if (null === static::$log) {
+            self::setup();
+        }
+
         return static::$log;
     }
 }
