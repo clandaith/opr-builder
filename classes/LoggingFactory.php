@@ -2,8 +2,9 @@
 
 namespace classes;
 
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
 
+use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
@@ -11,16 +12,14 @@ class LoggingFactory {
     private static Logger $log;
 
     public function setup(): Logger {
-        // set the format
-        //$output = "%message%\n";
-        // $formatter = new LineFormatter($output);
-// create a log channel to STDOUT
-        $log = new Logger('my_logger');
-        $log->pushHandler(new StreamHandler('php://stdout', Logger::WARNING));
-        // $streamHandler->setFormatter($formatter);
+        $output = "%message%\n";
+        $formatter = new LineFormatter($output);
 
-        // $log->pushHandler($streamHandler);
-// test messages
+        $log = new Logger('my_logger');
+        $streamHandler = new StreamHandler('php://stdout', Logger::WARNING);
+        $streamHandler->setFormatter($formatter);
+        $log->pushHandler($streamHandler);
+
         $log->error("error");
         $log->warning("warn");
         $log->info("info");
