@@ -2,20 +2,25 @@
 
 namespace classes;
 
-include 'traits/LoggingTrait.php';
+use classes\LoggingFactory as LoggingFactory;
+use Monolog\Logger;
 
 class MainController {
-    use \LoggingTrait;
+    private Logger $log;
 
     function __construct() {
-        $this->getLogger()->info("Constructing main controller...");
+        this::$log = LoggingFactory::getLogger();
+        this::$log->info("Constructing main controller...");
     }
 
     function __destruct() {
-        $this->getLogger()->info("Destructing main controller...");
+        this::$log->info("Destructing main controller...");
     }
 
     public function start() {
-        getLogger()->info("MainController start");
+        this::$log->info("MainController start");
+
+        //$conn = Connection::get();
+        // $conn->
     }
 }
