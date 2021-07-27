@@ -7,9 +7,8 @@ use PDO;
 
 class Connection {
     private static PDO $conn;
-    
-    public function connect(): PDO {
 
+    public function connect(): PDO {
         // read parameters in the ini configuration file
         $params = parse_ini_file('database.ini');
         if ($params === false) {

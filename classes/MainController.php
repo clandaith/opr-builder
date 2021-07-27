@@ -3,6 +3,7 @@
 namespace classes;
 
 include 'LoggingFactory.php';
+include 'Connection.php';
 
 use Monolog\Logger;
 
@@ -21,7 +22,10 @@ class MainController {
     public function start() {
         // this::$log->info("MainController start");
 
-        $conn = Connection::get();
+        this::$log = LoggingFactory::getLogger();
+        this::$log->info("MainController start");
+
+        //$conn = Connection::get();
         // $conn->
     }
 }
