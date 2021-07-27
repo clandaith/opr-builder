@@ -11,7 +11,7 @@ class LoggingFactory {
 
     public static function getLogger(): Logger {
         if (null === self::$log) {
-            build();
+            self::build();
         }
 
         return self::$log;
