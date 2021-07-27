@@ -11,13 +11,13 @@ class LoggingFactory {
 
     public static function getLogger(): Logger {
         if (null === static::$log) {
-            static::$log = new static();
+            build();
         }
 
         return static::$log;
     }
 
-    protected function __construct() {
+    private static function build() {
         echo "here";
 
         $output = "%message%\n";
@@ -31,6 +31,9 @@ class LoggingFactory {
         self::$log->error("error");
         self::$log->warning("warn");
         self::$log->info("info");
+    }
+
+    protected function __construct() {
     }
 
     private function __clone() {
