@@ -24,7 +24,7 @@ class LoggingFactory {
         $formatter = new LineFormatter($output);
 
         self::$log = new Logger('my_logger');
-        $streamHandler = new StreamHandler('php://stdout', Logger::WARNING);
+        $streamHandler = new StreamHandler('php://stdout', Logger::DEBUG);
         $streamHandler->setFormatter($formatter);
         self::$log->pushHandler($streamHandler);
 
