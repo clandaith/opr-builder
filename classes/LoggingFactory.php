@@ -7,14 +7,14 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 class LoggingFactory {
-    private static Logger $log;
+    private static $log;
 
     public static function getLogger(): Logger {
-        if (null === static::$log) {
+        if (null === self::$log) {
             build();
         }
 
-        return static::$log;
+        return self::$log;
     }
 
     private static function build() {
